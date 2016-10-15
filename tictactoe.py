@@ -111,6 +111,7 @@ for submission in subreddit.get_hot(limit=10):
                     afterWords = re.findall(r"[\w']+", after)
                     if len(afterWords) != 0:
                         position = afterWords[0]
+                        # TODO: add in new game condition/command?
                         if len(position) == 2:
                             row = int(position[0])
                             col = int(position[1])
@@ -145,7 +146,7 @@ for submission in subreddit.get_hot(limit=10):
                                     for i in range(3):
                                         output += "    " + gameboard[i * 3] + gameboard[i * 3 + 1] + gameboard[i * 3 + 2] + "\n"
                                     if m2 is -1 and r2 is 0:
-                                        output = "It's a draw!\n" + output
+                                        output = "It's a draw!\n\n" + output
                                         del current_games[comment.author.name]
                                     elif m2 is -1 and r2 is -1:
                                         output = "I won!\n\n" + output
